@@ -25,7 +25,7 @@ figsize7 = (5.5, 4.5)
 figsize8 = (2.25, 1.5)
 
 
-folder = os.path.expanduser("~/Desktop/MS Thesis") + '/Figures/'
+folder = os.getcwd() + '/Figures/'
 
 
 def savefig(name: str, path_name: str = '', pdf=True):
@@ -256,7 +256,7 @@ def plot_all_figures():
         _, r, z, H = values.plot_multi_zvc(z_bounds, energies)
 
         ctr_f = plt.pcolormesh(r, z, H, vmin=values.h_eq, vmax=values.h_esc, cmap='bone', alpha=0.65, rasterized=True)
-        cbar = plt.colorbar(matplotlib.cm.ScalarMappable(norm=ctr_f.norm, cmap=ctr_f.cmap), ticks=(values.h_eq, values.h_esc))
+        cbar = plt.colorbar(matplotlib.cm.ScalarMappable(norm=ctr_f.norm, cmap=ctr_f.cmap), ax=plt.gca(), ticks=(values.h_eq, values.h_esc))
         cbar.ax.set_yticklabels(('$U_{eq}$', '$U_{esc}$'))
         plt.xlabel('$r$')
         plt.ylabel('$z$', rotation='horizontal')
@@ -276,7 +276,7 @@ def plot_all_figures():
         _, r, z, H = values.plot_multi_zvc(z_bounds, energies)
 
         ctr_f = plt.pcolormesh(r, z, H, vmin=values.h_eq, vmax=values.h_esc, cmap='bone', alpha=0.65, rasterized=True)
-        cbar = plt.colorbar(matplotlib.cm.ScalarMappable(norm=ctr_f.norm, cmap=ctr_f.cmap), ticks=(values.h_eq, values.h_esc))
+        cbar = plt.colorbar(matplotlib.cm.ScalarMappable(norm=ctr_f.norm, cmap=ctr_f.cmap), ax=plt.gca(), ticks=(values.h_eq, values.h_esc))
         cbar.ax.set_yticklabels(('$U_{eq}$', '$U_{esc}$'))
         plt.xlabel('$r$')
         plt.ylabel('$z$', rotation='horizontal')

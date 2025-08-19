@@ -30,7 +30,7 @@ def PlotNewtonian():
     plt.xlim(right=r_points[-1])
     plt.ylim(top=(U(r_points[0])))
     plt.legend()
-    savefig("Newtonian")
+    savefig("Newtonian", "figures/")
 
 
 def plot3D_1():
@@ -267,7 +267,7 @@ def sample_SALI():
 def sample_SALI500():
     L = 1.0
     E = 0.42
-    sali = PlotSALI(L, E, resolution=100)
+    sali = PlotSALI(L, E, resolution=500)
     sali.plot_SALI(name="hires_500", load_array=True)
 
 def sample_LCN():

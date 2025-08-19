@@ -227,6 +227,12 @@ class PlotPoincare(PlotValues):
         self.savefig(name)
 
 
+def sample_poincare():
+    L = 1
+    E = 0.5
+    poinc = PlotPoincare(L, E)
+    poinc.plot_poincare()
+
 def sample_ordered():
     L = 1
     E = 0.5
