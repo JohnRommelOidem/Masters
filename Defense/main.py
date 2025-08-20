@@ -1,9 +1,13 @@
 import pptx
 import cv2
 from lxml import etree
+import inspect
+import subprocess
+import scene
+import os
 
 ppt_name = "Defense.pptx"
-movie_directory = "C:/Users/john rommel/Desktop/MS Thesis/Defense/media/videos/scene/720p30/sections/"
+movie_directory = os.getcwd() + "/media/videos/scene/720p15/sections/"
 
 
 def getFirstFrame(videofile, name):
@@ -62,15 +66,15 @@ scenes = {
     "Conclusion": 5
 }
 
-
-def main():
+def generate_slides():
     ppt = pptx.Presentation()
     ppt.slide_width = 9144000
     ppt.slide_height = 5143500
     for scene, section_number in scenes.items():
-        for i in [f"{scene}_{j:04}" if j > 0 else f"{scene}_{j:04}" for j in range(section_number)]:
+        for i in [f"{scene}_{j:04}_autocreated" if j == 0 else f"{scene}_{j:04}_unnamed" for j in range(section_number)]:
             slide = ppt.slides.add_slide(ppt.slide_layouts[6])
             movie_file = f"{movie_directory}/{i}"
+            
             getFirstFrame(movie_file, i)
             media = slide.shapes.add_movie(
                 f"{movie_file}.mp4", 0, 0, ppt.slide_width, ppt.slide_height,
@@ -79,6 +83,13 @@ def main():
             autoplay_media(media)
     ppt.save(ppt_name)
 
+def generate_scenes():
+    classes = [name for name, obj in inspect.getmembers(scene, inspect.isclass) if obj.__module__ == scene.__name__]
+    for i in classes:
+        subprocess.run(["manim", "-qm", "scene.py", i, "--fps", "15", "--save_sections"])
+
+def main():
+    generate_slides()
 
 if __name__ == '__main__':
     main()

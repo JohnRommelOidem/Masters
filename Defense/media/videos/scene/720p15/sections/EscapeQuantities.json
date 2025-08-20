@@ -1,0 +1,50 @@
+[
+    {
+        "name": "autocreated",
+        "type": "default.normal",
+        "video": "EscapeQuantities_0000_autocreated.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "48",
+        "duration": "3.200000",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "EscapeQuantities_0001_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "153",
+        "duration": "10.200000",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "EscapeQuantities_0002_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "33",
+        "duration": "2.200000",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "EscapeQuantities_0003_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "153",
+        "duration": "10.200000",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    }
+]

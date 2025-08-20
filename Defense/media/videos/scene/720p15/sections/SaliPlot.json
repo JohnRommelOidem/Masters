@@ -1,0 +1,50 @@
+[
+    {
+        "name": "autocreated",
+        "type": "default.normal",
+        "video": "SaliPlot_0000_autocreated.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "18",
+        "duration": "1.200000",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "SaliPlot_0001_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "18",
+        "duration": "1.200000",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "SaliPlot_0002_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "62",
+        "duration": "4.133333",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "SaliPlot_0003_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "106",
+        "duration": "7.066667",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    }
+]

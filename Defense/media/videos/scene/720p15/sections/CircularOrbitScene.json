@@ -1,0 +1,110 @@
+[
+    {
+        "name": "autocreated",
+        "type": "default.normal",
+        "video": "CircularOrbitScene_0000_autocreated.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "124",
+        "duration": "8.266667",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "CircularOrbitScene_0001_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "26",
+        "duration": "1.733333",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "CircularOrbitScene_0002_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "26",
+        "duration": "1.733333",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "CircularOrbitScene_0003_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "33",
+        "duration": "2.200000",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "CircularOrbitScene_0004_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "48",
+        "duration": "3.200000",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "CircularOrbitScene_0005_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "27",
+        "duration": "1.800000",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "CircularOrbitScene_0006_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "18",
+        "duration": "1.200000",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "CircularOrbitScene_0007_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "41",
+        "duration": "2.733333",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "CircularOrbitScene_0008_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "105",
+        "duration": "7.000000",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    }
+]

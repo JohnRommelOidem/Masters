@@ -1,0 +1,86 @@
+[
+    {
+        "name": "autocreated",
+        "type": "default.normal",
+        "video": "ChaosDefinitionScene_0000_autocreated.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "11",
+        "duration": "0.733333",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "ChaosDefinitionScene_0001_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "11",
+        "duration": "0.733333",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "ChaosDefinitionScene_0002_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "19",
+        "duration": "1.266667",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "ChaosDefinitionScene_0003_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "33",
+        "duration": "2.200000",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "ChaosDefinitionScene_0004_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "63",
+        "duration": "4.200000",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "ChaosDefinitionScene_0005_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "33",
+        "duration": "2.200000",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    },
+    {
+        "name": "unnamed",
+        "type": "default.normal",
+        "video": "ChaosDefinitionScene_0006_unnamed.mp4",
+        "width": 1280,
+        "height": 720,
+        "nb_frames": "63",
+        "duration": "4.200000",
+        "avg_frame_rate": "15/1",
+        "codec_name": "h264",
+        "pix_fmt": "yuv420p"
+    }
+]

@@ -781,21 +781,7 @@ class SymmetryScene(Scene):
         self.wait(0.2)
         self.next_section()
         r_eq = MNCValues(L.get_value(), E.get_value()).get_r_eq()
-        minima_point = Dot(ax.c2p(r_eq, 0))
-        minima_point_neg = Dot(ax_neg.c2p(r_eq, 0))
         self.play(E.animate.set_value(0.01), run_time=1.0)
-        self.play(
-            ReplacementTransform(zvc, minima_point),
-            ReplacementTransform(zvc_neg, minima_point_neg),
-            E.animate.set_value(0.0001),
-            run_time=0.02
-        )
-        self.wait(0.2)
-        self.play(
-            ReplacementTransform(minima_point, zvc),
-            ReplacementTransform(minima_point_neg, zvc_neg),
-            run_time=0.02
-        )
         asymptotes = MNCAsymptotes(L, E, ax)
         asymptotes_neg = MNCAsymptotes(L_neg, E, ax_neg)
         self.add(asymptotes, asymptotes_neg)
@@ -1581,7 +1567,7 @@ class SaliTrap(Scene):
         trap_3.add(Tex("Fig 4c: L=4").next_to(trap_3, DOWN, buff=SMALL_BUFF).scale(0.6))
         trap_plots = Group(trap_1, trap_2, trap_3).arrange(RIGHT)
         trap_text = Tex("Fig 4: Escape time plots with increasing L. (E=1.1)").next_to(trap_plots, DOWN).scale(0.8)
-        trap_plots = Group(trap_plots, trap_text).to_edge(UP)
+        trap_plots = Group(trap_plots, trap_text).to_edge(DOWN)
 
         sali_1 = ImageMobject("sali_trap_1.png").scale(0.5)
         sali_1.add(Tex("Fig 7a: L=2").next_to(sali_1, DOWN, buff=SMALL_BUFF).scale(0.6))
@@ -1878,140 +1864,6 @@ class MBHRescale(Scene):
         self.wait(0.2)
         self.next_section()
         self.play(Write(text_group_2[3:], run_time=0.5))
-        self.wait(0.2)
-
-
-class SymmetryScene(Scene):
-    def construct(self):
-        stretch = 1
-        ax = Axes(
-            x_length=3 * stretch,
-            x_range=(0, 6.5)
-        )
-        ax_label = ax.get_axis_labels(x_label=MathTex('r'), y_label=MathTex('z'))
-        r_esc = ValueTracker(3.7)
-        p = ValueTracker(1.8)
-        E = ValueTracker(0.9)
-        zvc = MBHZeroVelocityCurve(r_esc, p, E, ax)
-        asymptotes = MBHAsymptotes(r_esc, p, E, ax)
-
-        text_B = DecimalNumber(
-            MBHreparametrization(r_esc.get_value(), p.get_value(), E.get_value())[0],
-            num_decimal_places=3
-        ).move_to(4 * LEFT + 1 * UP)
-        text_L = DecimalNumber(
-            MBHreparametrization(r_esc.get_value(), p.get_value(), E.get_value())[1],
-            num_decimal_places=3
-        ).next_to(text_B, DOWN)
-        text_E = DecimalNumber(
-            MBHreparametrization(r_esc.get_value(), p.get_value(), E.get_value())[2],
-            num_decimal_places=3
-        ).next_to(text_L, DOWN)
-        text_B.add_updater(lambda mob: mob.set_value(MBHreparametrization(r_esc.get_value(), p.get_value(), E.get_value())[0]))
-        text_L.add_updater(lambda mob: mob.set_value(MBHreparametrization(r_esc.get_value(), p.get_value(), E.get_value())[1]))
-        text_E.add_updater(lambda mob: mob.set_value(MBHreparametrization(r_esc.get_value(), p.get_value(), E.get_value())[2]))
-        B_label = MathTex("B=").next_to(text_B, LEFT)
-        L_label = MathTex("L=").next_to(text_L, LEFT)
-        E_label = MathTex(r"\mathcal{E}=").next_to(text_E, LEFT)
-        BHcurve = ParametricFunction(
-            lambda t: (ax.c2p(np.cos(t), 0)[0], ax.c2p(0, np.sin(t))[1], 0), t_range=(-PI/2, PI/2), color=ORANGE
-        )
-        group = VGroup(ax, ax_label, zvc, asymptotes, text_B, text_L, text_E, B_label, L_label, E_label, BHcurve)
-
-        stretch = 1
-        ax = Axes(
-            x_length=3 * stretch,
-            x_range=(0, 3)
-        ).shift(RIGHT)
-        ax_label = ax.get_axis_labels(x_label=MathTex('r'), y_label=MathTex('z'))
-        L = ValueTracker(1.)
-        ax_neg = Axes(
-            x_length=3 * stretch,
-            x_range=(0, 3)
-        ).shift(RIGHT)
-        ax_label_neg = ax.get_axis_labels(x_label=MathTex('r'), y_label=MathTex('z'))
-        L_neg = ValueTracker(-1.)
-        E = ValueTracker(0.6)
-        zvc = MNCZeroVelocityCurve(L, E, ax)
-        zvc_neg = MNCZeroVelocityCurve(L_neg, E, ax_neg)
-
-        text_E = DecimalNumber(
-            E.get_value(),
-            num_decimal_places=3
-        ).next_to(ax, LEFT).shift(0.25 * UP)
-        text_L = DecimalNumber(
-            L.get_value(),
-            num_decimal_places=3
-        ).next_to(text_E, DOWN)
-        text = VGroup(MathTex('E', '=').next_to(text_E, LEFT), text_E)
-        text1 = VGroup(MathTex('L', '=').next_to(text[0], DOWN), text_L)
-        text = VGroup(text, text1)
-
-        text_E.add_updater(lambda d: d.set_value(E.get_value()))
-        text_L.add_updater(lambda d: d.set_value(L.get_value()))
-
-        text_E_neg = DecimalNumber(
-            E.get_value(),
-            num_decimal_places=3
-        ).next_to(ax_neg, LEFT).shift(0.25 * UP)
-        text_L_neg = DecimalNumber(
-            L_neg.get_value(),
-            num_decimal_places=3
-        ).next_to(text_E, DOWN)
-        text_neg = VGroup(MathTex('E', '=').next_to(text_E_neg, LEFT), text_E_neg)
-        text1_neg = VGroup(MathTex('L', '=').next_to(text_neg[0], DOWN), text_L_neg)
-        text_neg = VGroup(text_neg, text1_neg)
-
-        text_E_neg.add_updater(lambda d: d.set_value(E.get_value()))
-        text_L_neg.add_updater(lambda d: d.set_value(L_neg.get_value()))
-        group = VGroup(ax, ax_label, text, zvc).to_edge(LEFT)
-        group_neg = VGroup(ax_neg, ax_label_neg, text_neg, zvc_neg).to_edge(RIGHT)
-        r = ValueTracker(1.0)
-        T = ValueTracker(10)
-        y_max = config["frame_y_radius"]
-        divider = Line(start=UP*y_max, end=DOWN*y_max)
-        self.play(*[FadeIn(i) for i in (divider, group[:-1], group_neg[:-1])])
-        self.play(Create(group[-1]), Create(group_neg[-1]))
-        self.wait(0.2)
-        self.next_section()
-        r_eq = MNCValues(L.get_value(), E.get_value()).get_r_eq()
-        minima_point = Dot(ax.c2p(r_eq, 0))
-        minima_point_neg = Dot(ax_neg.c2p(r_eq, 0))
-        self.play(E.animate.set_value(0.01), run_time=1.0)
-        self.play(
-            ReplacementTransform(zvc, minima_point),
-            ReplacementTransform(zvc_neg, minima_point_neg),
-            E.animate.set_value(0.0001),
-            run_time=0.02
-        )
-        self.wait(0.2)
-        self.play(
-            ReplacementTransform(minima_point, zvc),
-            ReplacementTransform(minima_point_neg, zvc_neg),
-            run_time=0.02
-        )
-        asymptotes = MNCAsymptotes(L, E, ax)
-        asymptotes_neg = MNCAsymptotes(L_neg, E, ax_neg)
-        self.add(asymptotes, asymptotes_neg)
-        self.play(E.animate.set_value(1.0), run_time=1.0)
-        self.wait(0.2)
-        self.next_section()
-        self.play(E.animate.set_value(1.1))
-        self.wait(0.2)
-        self.next_section()
-        self.play(E.animate.set_value(0.6))
-        self.wait(0.2)
-        self.next_section()
-        trajectory = MNCTrajectory2D(L, E, r, ax, T)
-        trajectory_neg = MNCTrajectory2D(L_neg, E, r, ax_neg, T)
-        self.play(*[Create(i, rate_func=linear) for i in (trajectory, trajectory_neg)])
-        self.wait(0.2)
-        self.next_section()
-        self.play(E.animate.set_value(0.4), run_time=2.0)
-        self.play(L.animate.set_value(0.5), L_neg.animate.set_value(-0.5), r.animate.set_value(0.5), run_time=2.0)
-        self.play(E.animate.set_value(1.1), run_time=2.0)
-        self.play(L.animate.set_value(1), L_neg.animate.set_value(-1), r.animate.set_value(1), run_time=2.0)
-        self.play(E.animate.set_value(0.6), run_time=2.0)
         self.wait(0.2)
 
 
