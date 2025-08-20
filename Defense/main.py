@@ -89,6 +89,7 @@ def generate_scenes():
         subprocess.run(["manim", "-qm", "scene.py", i, "--fps", "15", "--save_sections"])
 
 def main():
+    generate_scenes()
     generate_slides()
 
 if __name__ == '__main__':

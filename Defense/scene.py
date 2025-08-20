@@ -1,5 +1,7 @@
 from manim_cnf import *
+from manim import config
 
+config.assets_dir = "assets"
 default_camera = {
     'phi': 75*DEGREES,
     'theta': 30*DEGREES,
