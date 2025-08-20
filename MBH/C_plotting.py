@@ -24,8 +24,7 @@ figsize6 = (20, 20)
 figsize7 = (5.5, 4.5)
 
 
-folder = os.path.expanduser("~\Desktop\MS Thesis\MBH") + '\Figures\\'
-
+folder = os.getcwd() + '/Figures/'
 
 def savefig(name: str, path_name: str = '', pdf=True):
     os.makedirs(os.path.dirname(f'{folder}{path_name}{name}.pdf'), exist_ok=True)
@@ -260,7 +259,7 @@ def L_eq_plus_plot():
     plt.ylim(bottom=y_min, top=y_max)
     plt.xlim(left=1, right=4)
     plt.legend(loc="upper right")
-    savefig("L_eq_plus")
+    savefig("L_eq_plus", "figures/")
 
 
 def L_eq_minus_plot():
@@ -302,7 +301,7 @@ def L_eq_minus_plot():
     plt.ylim(bottom=y_max, top=y_min * 0.5)
     plt.xlim(left=1.3, right=10)
     plt.legend(loc="lower right")
-    savefig("L_eq_minus")
+    savefig("L_eq_minus", "figures/")
 
 
 def potential_plot():
@@ -335,7 +334,7 @@ def potential_plot():
     plt.ylim(bottom=0)
     plt.xlabel("R")
     plt.ylabel("U")
-    savefig("U_eqs")
+    savefig("U_eqs", "figures/")
 
 
 def Contour():
@@ -360,7 +359,7 @@ def Contour():
     PlotValues(r_esc, p, 0.).plot_zvc(z_bounds, r_bounds=[0, 4.0], resolution=500)
     PlotValues(r_esc, p, values.get_potential_energy_cyl(3.5, 0)).plot_zvc(z_bounds, r_bounds=[0, 4.0], resolution=500)
     ctr_f = plt.pcolormesh(r, z, H, vmin=0, vmax=1.6, cmap='bone', alpha=0.65, rasterized=True)
-    cbar = plt.colorbar(matplotlib.cm.ScalarMappable(norm=ctr_f.norm, cmap=ctr_f.cmap), ticks=(0, 1, *values.get_U_eq()))
+    cbar = plt.colorbar(matplotlib.cm.ScalarMappable(norm=ctr_f.norm, cmap=ctr_f.cmap), ax=plt.gca(), ticks=(0, 1, *values.get_U_eq()))
     cbar.ax.set_yticklabels(('$E=0$', '$E=U_{esc}$', '$E=U_{un}$', '$E=U_{st}$'))
     plt.xlabel('$r$')
     plt.ylabel('$z$', rotation='horizontal')
@@ -392,7 +391,7 @@ def Contour2():
     PlotValues(r_esc, p, 0.).plot_zvc(z_bounds, r_bounds=[0, 4.0], resolution=500)
     PlotValues(r_esc, p, values.get_potential_energy_cyl(3, 0)).plot_zvc(z_bounds, r_bounds=[0, 4.0], resolution=500)
     ctr_f = plt.pcolormesh(r, z, H, vmin=0, vmax=1.6, cmap='bone', alpha=0.65, rasterized=True)
-    cbar = plt.colorbar(matplotlib.cm.ScalarMappable(norm=ctr_f.norm, cmap=ctr_f.cmap), ticks=(0, 1, *values.get_U_eq()))
+    cbar = plt.colorbar(matplotlib.cm.ScalarMappable(norm=ctr_f.norm, cmap=ctr_f.cmap), ax=plt.gca(), ticks=(0, 1, *values.get_U_eq()))
     cbar.ax.set_yticklabels(('$E=0$', '$E=U_{esc}$', '$E=U_{un}$', '$E=U_{st}$'))
     plt.xlabel('$r$')
     plt.ylabel('$z$', rotation='horizontal')
@@ -487,4 +486,14 @@ def resc_plot():
     plt.ylim(bottom=y_min, top=y_max)
     plt.xlim(left=1, right=5)
     plt.legend(loc="upper right")
-    savefig("resc")
+    savefig("resc", "figures/")
+
+def plot_figures():
+    L_eq_plus_plot()
+    L_eq_minus_plot()
+    potential_plot()
+    Contour()
+    Contour2()
+    min_asym()
+    asym()
+    resc_plot()

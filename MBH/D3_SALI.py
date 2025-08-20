@@ -196,6 +196,13 @@ class PlotSALI(PlotValues):
             self.savefig(self.name)
         plt.close("all")
 
+def generate_sample_sali():
+    E = 1.2
+    p = 1.2
+    r_esc_values = [2.4, 2.8, 3.2]
+    for r in r_esc_values:
+        sali = PlotSALI(r, p, E)
+        sali.plot_SALI()
 
 def generate_SALI_data():
     r_esc_values = [

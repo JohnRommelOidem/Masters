@@ -145,12 +145,7 @@ def generate_zoom_escape3():
 
 
 def main():
-    E = 1.2
-    r_esc = 1.8
-    p = 1.2
-    resolution = 300
-    plot = EscapePlot(r_esc, p, E, resolution=resolution)
-    print(f"({np.min(plot.r_mesh)}, {np.max(plot.r_mesh)}) ({np.min(plot.pr_mesh)}, {np.max(plot.pr_mesh)})")
+    generate_sample_sali()
 
 
 if __name__ == '__main__':
